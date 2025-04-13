@@ -21,9 +21,9 @@ jobs:
     - name: Get current date
       id: date
       run: |
-        $date = Get-Date -Format "yyyyMMdd"
-        echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-        echo "TAG_NAME=v$(date)" >> $GITHUB_ENV
+        TAG_NAME="v$(date +'%Y.%m.%d')"
+        echo $TAG_NAME
+        echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
 
     - name: Create release
       id: create_release
